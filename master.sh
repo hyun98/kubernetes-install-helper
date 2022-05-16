@@ -14,7 +14,8 @@ sudo rm kubeadm-init-result.txt
 # config for master only
 # Master get kubectl privileges
 mkdir -p $HOME/.kube
-sudo cp -i -y /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo rm -f $HOME/.kube/config
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 
