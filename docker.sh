@@ -9,6 +9,7 @@ VERSION=$(cat /etc/issue)
 
 
 if [[ "$VERSION" == *"Ubuntu"* ]]; then
+echo "Server platform is "$VERSION
 else
 echo "Only available Linux/Ubuntu"
 exit 1
