@@ -2,7 +2,7 @@
 
 if [[ "$1" == "reset" ]]
 then
-  sudo kubeadm reset -y
+  yes | sudo kubeadm reset
   sudo systemctl restart kubelet
   sudo apt purge kubeadm -y
   sudo apt purge kubelet -y
