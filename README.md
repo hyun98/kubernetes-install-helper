@@ -3,8 +3,12 @@
 
  > You can install docker, kubectl, kubelet and kubeadm. <br> K8s will be installed by kubeadm
  
-  *i did't test yet*
- 
+
+--- 
+### Test Done list
+<!-- - Ubuntu 18.04 -->
+
+ ---
 <br>
 
 `0. If the file does not run, change the permissions to executable`
