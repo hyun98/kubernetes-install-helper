@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$1" = "reset" ]
+if [[ "$1" == "reset" ]]
 then
   sudo kubeadm reset -y
   sudo systemctl restart kubelet

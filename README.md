@@ -6,7 +6,11 @@
 
 --- 
 ### Test Done list
-<!-- - Ubuntu 18.04 -->
+#### docker.sh
+- Ubuntu 18.04.6
+
+#### config-k8s.sh
+- Ubuntu 18.04.6
 
  ---
 <br>
@@ -47,3 +51,11 @@ sudo chmod +x ./config-k8s.sh ./docker.sh ./master.sh
 ```
 > token saved at k8s-token.txt<br> This token has no expiry date
 
+
+<br>
+
+`4. Add worker node`
+```
+If you add Worker Node, you can find command at Master's k8s-token.txt
+And you should prepend 'sudo' to the command
+```

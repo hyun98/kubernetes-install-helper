@@ -57,10 +57,12 @@ fi
 
 # Grant docker.sock privileges to the current user
 sudo usermod -a -G docker $USER
+sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+sudo chmod g+rwx "/home/$USER/.docker" -R
 
 # Apply changes
-sudo service docker restart
-
+sudo service docker stop
+sudo service docker start
 
 # Config docker group
 # cgroupfs -> systemd
