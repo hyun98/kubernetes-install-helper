@@ -8,8 +8,29 @@ then
   sudo apt purge kubeadm -y
   sudo apt purge kubelet -y
   sudo apt purge kubectl -y
+  sudo rm -rf ~/.kube/
+  sudo rm -rf /etc/kubernetes/
   exit 1
 fi
+
+
+# Config docker drivergroup
+# cgroupfs -> systemd
+cat <<EOF | sudo tee /etc/docker/daemon.json
+{
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m"
+  },
+  "storage-driver": "overlay2"
+}
+EOF
+
+
+# Apply systemd
+sudo systemctl daemon-reload
+sudo systemctl restart docker
 
 # install kubernetes cluster
 sudo swapoff -a

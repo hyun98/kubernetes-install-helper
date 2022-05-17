@@ -9,7 +9,9 @@ VERSION=$(cat /etc/issue)
 
 
 if [[ "$VERSION" == *"Ubuntu"* ]]; then
+echo "============================"
 echo "Server platform is "$VERSION
+echo "============================"
 else
 echo "Only available Linux/Ubuntu"
 exit 1
@@ -63,16 +65,3 @@ sudo chmod g+rwx "/home/$USER/.docker" -R
 # Apply changes
 sudo service docker stop
 sudo service docker start
-
-# Config docker group
-# cgroupfs -> systemd
-cat <<EOF | sudo tee /etc/docker/daemon.json
-{
-  "exec-opts": ["native.cgroupdriver=systemd"],
-  "log-driver": "json-file",
-  "log-opts": {
-    "max-size": "100m"
-  },
-  "storage-driver": "overlay2"
-}
-EOF
