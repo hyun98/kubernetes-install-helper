@@ -20,4 +20,6 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 
 # config Calico network
-kubectl create -f https://projectcalico.docs.tigera.io/manifests/tigera-operator.yaml
+curl https://projectcalico.docs.tigera.io/manifests/calico.yaml -O
+kubectl apply -f calico.yaml
+
