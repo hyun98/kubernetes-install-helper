@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # init K8s
-sudo kubeadm init --token-ttl 0 --pod-network-cidr=172.16.0.0/16 >> kubeadm-init-result.txt
+sudo kubeadm init --token-ttl 0 --pod-network-cidr=192.168.0.0/16 >> kubeadm-init-result.txt
 
 sudo rm k8s-token.txt
 
@@ -22,4 +22,3 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 # config Calico network
 curl https://projectcalico.docs.tigera.io/manifests/calico.yaml -O
 kubectl apply -f calico.yaml
-
