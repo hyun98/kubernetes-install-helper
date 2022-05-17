@@ -2,6 +2,7 @@
 
 if [[ "$1" == "reset" ]]
 then
+  sudo apt-mark unhold kubelet kubeadm kubectl
   yes | sudo kubeadm reset
   sudo systemctl restart kubelet
   sudo apt purge kubeadm -y
@@ -24,17 +25,18 @@ echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https:/
 
 sudo apt-get update
 
-echo "============================"
-echo "Enter the user K8s Version"
-echo "1.18.4"
-echo "1.21.12"
-echo "1.22.9"
-echo "1.23.6"
-echo "1.24.0"
-echo "version: "
-read version
-version=$version"-00"
-echo "Entered Version: $version"
+# echo "============================"
+# echo "Enter the user K8s Version"
+# echo "1.18.4"
+# echo "1.21.12"
+# echo "1.22.9"
+# echo "1.23.6"
+# echo "1.24.0"
+# echo "version: "
+# read version
+# version=$version"-00"
+# echo "Entered Version: $version"
+version="1.23.6-00"
 echo "============================"
 echo "Install start"
 echo "============================"
