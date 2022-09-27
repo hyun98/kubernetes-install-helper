@@ -4,6 +4,7 @@ if [[ "$1" == "reset" ]]
 then
   sudo apt-mark unhold kubelet kubeadm kubectl
   yes | sudo kubeadm reset
+  iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
   sudo systemctl restart kubelet
   sudo apt purge kubeadm -y
   sudo apt purge kubelet -y
